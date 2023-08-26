@@ -1,0 +1,32 @@
+<head>
+  <title>passkeys</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <h1>Welcome to Meteor + Passkeys!</h1>
+
+  {{> loginButtons}}
+  <br/>
+  {{#if isLoggedIn}}
+    {{>passkeys}}
+  {{/if}}
+</body>
+
+<template name="passkeys">
+  Logged in {{currentUser.username}}<br />
+
+  {{> registerPasskey}}
+
+  {{#each usersPasskeys}}
+    {{> passkeyDetails}}
+  {{/each}}
+</template>
+
+<template name="registerPasskey">
+  {{#if isSupported}}
+    Passkeys supported!
+  {{/if}}
+</template>
+
+<template name="passkeyDetails"></template>
